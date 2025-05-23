@@ -17,14 +17,14 @@
     --ripe_olive: #44483D;
   }
 
-  :root {
-    --background: var(--repose_grey);
-    --accent1: var(--endless_sea);
-    --accent2:var(--farm_fresh);
-    --text1: var(--alabaster);
-    --text2: var(--ripe_olive);
-    --text3: var(--naval);
-  }
+:root {
+--background: var(--repose_grey);
+--accent1: var(--endless_sea);
+--accent2:var(--farm_fresh);
+--text1: var(--alabaster);
+--text2: var(--ripe_olive);
+--text3: var(--naval);
+}
   
   body {
     font-family: 'Helvetica Neue', sans-serif;
