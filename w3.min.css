@@ -577,12 +577,12 @@ a {
 }
 
 .w3-bar .w3-bar-item {
-  padding: 8px 16px;
+  padding: 5% 20%;
   float: left;
   width: auto;
-  border: none;
-  display: block;
-  outline: 0
+  border: solid;
+  display:contents;
+  outline: 1;
 }
 
 .w3-bar .w3-dropdown-hover,
