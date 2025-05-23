@@ -65,6 +65,7 @@
       opacity 0.4s ease;
     opacity: 0.7; /* faded by default */
     align-items: stretch;
+    border: none;
   }
   
   nav a:hover {
@@ -73,6 +74,7 @@
     transform: scale(1.15);
     opacity: 1;
     cursor: pointer;
+    border: none;
   }
 
   .tab-container {
@@ -105,9 +107,10 @@
 }
 
 .hn-btn:hover {
+    border: none;
     background-color: var(--repose_grey);
     color: var(--ripe_olive);
-  box-shadow: 0 8px 25px 0 var(--ghost_whisperer), 0 6px 20px 0 var(--alabaster)
+  /* box-shadow: 0 8px 25px 0 var(--ghost_whisperer), 0 6px 20px 0 var(--alabaster) */
 }
 
 .hn-btn,
