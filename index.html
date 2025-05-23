@@ -2,69 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Summerswood Psychotherapy</title>
   <style>
+    :root {
+      --beige: #E8DCD1;
+      --brown: #85594F;
+      --blue: #32586D;
+      --tan: #D5C7BA;
+    }
+
     body {
       font-family: 'Helvetica Neue', sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
-      background-color: #e8dcd1;
-      color: #85594F;
+      background-color: var(--beige);
+      color: var(--brown);
     }
 
     header {
-      background-color: #32586E;
-      color: #D5C7BA;
-      padding: 2rem;
+      background-color: var(--blue);
+      color: white;
+      padding: 1.5rem;
       text-align: center;
     }
 
     nav {
-      text-align: center;
-      margin-top: 10px;
+      background-color: var(--brown);
+      display: flex;
+      justify-content: center;
     }
 
     nav a {
-      margin: 0 10px;
       color: white;
+      padding: 1rem 2rem;
       text-decoration: none;
       font-weight: bold;
     }
 
-    section {
-      max-width: 800px;
-      margin: auto;
+    nav a:hover {
+      background-color: #6c443d;
+    }
+
+    .photo-container {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .photo-container img {
+      max-width: 200px;
+      border-radius: 50%;
+      border: 4px solid var(--blue);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background-color: var(--tan);
       padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    h1 {
-      color: #BCCBCE;
+    .hidden {
+      display: none;
     }
 
-    h2, h3 {
-      color: #32586E;
+    h2 {
+      color: var(--blue);
+    }
+
+    ul {
+      padding-left: 1.2rem;
     }
 
     .fee {
-      background-color: #BCCBCE;
-      padding: 1rem;
-      border-left: 5px solid #32586E;
-      margin-top: 2rem;
-    }
-
-    footer {
-      background-color: #32586E;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
+      background-color: #f4ece6;
+      padding: 1.5rem;
+      border-left: 5px solid var(--blue);
+      border-radius: 8px;
+      margin-top: 1rem;
     }
 
     a.button {
       display: inline-block;
-      background-color: #32586E;
+      background-color: var(--blue);
       color: white;
       padding: 0.75rem 1.5rem;
       text-decoration: none;
@@ -72,8 +98,24 @@
       margin-top: 1rem;
     }
 
+    footer {
+      background-color: var(--blue);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
     @media (max-width: 600px) {
-      section {
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        padding: 1rem;
+      }
+
+      main {
         padding: 1rem;
       }
     }
@@ -86,51 +128,69 @@
     <p>Compassionate Support for Healing, Growth, and Change</p>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      Welcome! I’m a compassionate and experienced <strong>Registered Psychotherapist (Qualifying)</strong> with a diverse background spanning private practice, residential treatment, and the non-profit community sector.
-    </p>
-    <p>
-      With over <strong>five years of clinical experience</strong>, I work with teens and adults navigating mental health challenges, trauma, addiction, relationship struggles, and personal growth.
-    </p>
-    <p>
-      My therapeutic style is <strong>integrative</strong>, drawing from evidence-based approaches including:
-    </p>
-    <ul>
-      <li>Cognitive Behavioural Therapy (CBT)</li>
-      <li>Cognitive Processing Therapy (CPT)</li>
-      <li>Emotionally Focused Therapy (EFT)</li>
-      <li>Dialectical Behaviour Therapy (DBT)</li>
-      <li>Acceptance and Commitment Therapy (ACT)</li>
-    </ul>
-    <p>
-      I believe in creating a warm, collaborative space where you feel safe to explore your inner world and grow. I'm here to support your journey with compassion, clarity, and practical tools for lasting change.
-    </p>
-  </section>
+  <nav>
+    <a href="#" onclick="showTab('about')">About Me</a>
+    <a href="#" onclick="showTab('specialty')">Specialty</a>
+    <a href="#" onclick="showTab('pricing')">Pricing</a>
+  </nav>
 
-  <section id="services">
-    <h2>What I Help With</h2>
-    <ul>
-      <li>Healing from trauma and PTSD</li>
-      <li>Navigating addiction and recovery</li>
-      <li>Managing anxiety and breaking people-pleasing patterns</li>
-      <li>Strengthening relationships and improving communication</li>
-      <li>Building confidence and pursuing personal growth</li>
-    </ul>
-  </section>
+  <div class="photo-container">
+    <img src="rachel_summers.jpeg" alt="Rachel Summers">
+  </div>
 
-  <section class="fee">
-    <h2>Sessions & Fees</h2>
-    <p><strong>Format:</strong> Virtual Sessions Available</p>
-    <p><strong>Fee:</strong> $200 per session</p>
-    <a href="mailto:youremail@example.com" class="button">Email to Book a Session</a>
-  </section>
+  <main>
+    <section id="about" class="tab-content card">
+      <h2>About Me</h2>
+      <p>Welcome! I’m a compassionate and experienced <strong>Registered Psychotherapist (Qualifying)</strong> with a diverse background spanning private practice, residential treatment, and the non-profit community sector.</p>
+      <p>With over <strong>five years of clinical experience</strong>, I work with teens and adults navigating mental health challenges, trauma, addiction, relationship struggles, and personal growth.</p>
+      <p>My therapeutic style is <strong>integrative</strong>, drawing from evidence-based approaches including:</p>
+      <ul>
+        <li>Cognitive Behavioural Therapy (CBT)</li>
+        <li>Cognitive Processing Therapy (CPT)</li>
+        <li>Emotionally Focused Therapy (EFT)</li>
+        <li>Dialectical Behaviour Therapy (DBT)</li>
+        <li>Acceptance and Commitment Therapy (ACT)</li>
+      </ul>
+      <p>I strive to create a <strong>warm, collaborative space</strong> where you feel safe to explore your thoughts, emotions, and behaviours. I'm here to support your journey with compassion, clarity, and practical tools for lasting change.</p>
+    </section>
+
+    <section id="specialty" class="tab-content hidden card">
+      <h2>What I Help With</h2>
+      <ul>
+        <li>Healing from trauma and PTSD</li>
+        <li>Navigating addiction and recovery</li>
+        <li>Managing anxiety and breaking people-pleasing patterns</li>
+        <li>Strengthening relationships and improving communication</li>
+        <li>Building confidence and pursuing personal growth</li>
+      </ul>
+    </section>
+
+    <section id="pricing" class="tab-content hidden card">
+      <h2>Sessions & Fees</h2>
+      <div class="fee">
+        <p><strong>Format:</strong> Virtual Sessions Available</p>
+        <p><strong>Fee:</strong> $200 per session</p>
+      </div>
+      <a href="mailto:youremail@example.com" class="button">Email to Book a Session</a>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 Summerswood Psychotherapy. All rights reserved.</p>
     <p>Serving clients across [Your Region]</p>
   </footer>
+
+  <script>
+    function showTab(tabId) {
+      const sections = document.querySelectorAll('.tab-content');
+      sections.forEach(section => section.classList.add('hidden'));
+      document.getElementById(tabId).classList.remove('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      showTab('about');
+    });
+  </script>
 
 </body>
 </html>
