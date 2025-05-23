@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="w3.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <style>
     body, h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
@@ -70,14 +71,29 @@
   </section>
 
   <!-- Specialty -->
-  <section id="specialty" class="w3-container card tab-content w3-hide">
-    <h2>What I Help With</h2>
-    <ul>
-      <li>Healing from trauma and PTSD</li>
-      <li>Navigating addiction and recovery</li>
-      <li>Managing anxiety and breaking people-pleasing patterns</li>
-      <li>Strengthening relationships and improving communication</li>
-      <li>Building confidence and pursuing personal growth</li>
+  <section id="specialty" class="card w3-container tab-content w3-hide" style="max-width: 600px; margin: auto; background: #f9f9f9; border-radius: 1rem; padding: 2rem; box-shadow: 0 0 12px rgba(0,0,0,0.1);">
+    <h2 style="text-align: center; font-size: 1.75rem; margin-bottom: 1.5rem;">What I Help With</h2>
+    <ul style="list-style: none; padding: 0;">
+      <li style="display: flex; align-items: center; margin-bottom: 1rem;">
+        <i class="fas fa-heartbeat" style="color: var(--tassel); margin-right: 1rem;"></i>
+        <span>Healing from trauma and PTSD</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 1rem;">
+        <i class="fas fa-hand-holding-heart" style="color:var(--cavern_clay); margin-right: 1rem;"></i>
+        <span>Navigating addiction and recovery</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 1rem;">
+        <i class="fas fa-brain" style="color:var(--canyon_clay); margin-right: 1rem;"></i>
+        <span>Managing anxiety and breaking people-pleasing patterns</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 1rem;">
+        <i class="fas fa-comments" style="color:var(--faded_flaxflower); margin-right: 1rem;"></i>
+        <span>Strengthening relationships and improving communication</span>
+      </li>
+      <li style="display: flex; align-items: center;">
+        <i class="fas fa-seedling" style="color:var(--sleepy_blue); margin-right: 1rem;"></i>
+        <span>Building confidence and pursuing personal growth</span>
+      </li>
     </ul>
   </section>
 
@@ -88,8 +104,10 @@
       <p><strong>Format:</strong> Virtual Sessions Available</p>
       <p></p><strong>Fee:</strong> $200 per session</p>
     </div>
-    <a href="mailto:summers.rachel@live.com>" class="hn-button w3-margin-top">Email to Book a Session</a>
-  </section>
+    <div style="padding-top: 1rem;">
+    <a style="background-color: var(--endless_sea); color: var(--alabaster);" href="mailto:summers.rachel@live.com>" class="hn-button">Email to Book a Session</a>
+    </div>
+</section>
 
   <!-- Footer -->
   <footer>
