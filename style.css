@@ -1,0 +1,96 @@
+:root {
+    --tassel: #C6884A;
+    --cavern_clay: #AC6B53;
+    --canyon_clay: #85594F;
+    --faded_flaxflower: #a9bdc8;
+    --sleepy_blue: #BCCBCE;
+    --naval: #2F3D4C;
+    --endless_sea: #32586D;
+    --alabaster: #efefe3;
+    --touch_of_sand: #E8DCD1;
+    --canvas: #e0d7c6;
+    --repose_grey: #d4cfc9;
+    --sandbank: #D5C7BA;
+    --ghost_whisperer: #d1d7d7;
+    --softened_green: #c2c3b1;
+    --farm_fresh: #9aa595;
+    --ripe_olive: #44483D;
+  }
+  
+  body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--alabaster);
+    color: var(--canyon_clay);
+  }
+  
+  header {
+    background-color: var(--faded_flaxflower);
+    color: var(--naval);
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  nav {
+    background-color: var(--canyon_clay);
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav a {
+    color: var(--alabaster);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    background-color: var(--canvas);
+    color: var(--tassel);
+  }
+  
+  .photo-container {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .photo-container img {
+    max-width: 200px;
+    border: 2px solid var(--endless_sea);
+  }
+  
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .card {
+    background-color: var(--ghost_whisperer);
+    padding: 2rem;
+    box-shadow: 0 2px 8px #0000001a;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  h2 {
+    color: var(--endless_sea);
+    text-align: center;
+  }
+  
+  ul {
+    padding-left: 1.2rem;
+  }
+  
+  .fee {
+    background-color: var(--sandbank);
+    padding: 1.5rem;
+    border-left: 5px solid var(--endless_sea);
+    border-radius: 8px;
+   
+  ::contentReference[oaicite:1]{index=1}
+   
+  
