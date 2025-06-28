@@ -433,6 +433,7 @@ body::before {
   to { transform: translateX(0) translateY(0); }
 }
 
+
 /* === Responsive === */
 @media (max-width: 768px) {
   nav {
@@ -635,6 +636,7 @@ body::before {
         targetEl.classList.add('section-reveal', 'visible');
         setTimeout(() => {
           history.replaceState(null, '', targetId);
+
           hero.classList.remove('hero-transition');
           targetEl.classList.remove('section-reveal');
         }, 500);
