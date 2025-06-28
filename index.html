@@ -438,12 +438,12 @@ body::before {
 .hero-transition { animation: heroSlide 0.5s forwards; }
 .section-reveal { animation: sectionSlide 0.5s forwards; }
 @keyframes heroSlide {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
 }
 @keyframes sectionSlide {
-  from { transform: translateX(100%) translateY(0); }
-  to { transform: translateX(0) translateY(0); }
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
 
 
@@ -622,6 +622,20 @@ body::before {
     });
 
     const hero = document.querySelector('.viewport-center');
+    const header = document.querySelector('header');
+
+    function checkHeroVisibility() {
+      const heroHeight = hero.offsetHeight;
+      const headerHeight = header.offsetHeight;
+      if (window.scrollY > heroHeight - headerHeight) {
+        hero.style.display = 'none';
+      } else {
+        hero.style.display = '';
+      }
+    }
+
+    window.addEventListener('scroll', checkHeroVisibility);
+    window.addEventListener('load', checkHeroVisibility);
 
     const aboutSection = document.querySelector('#about').closest('section');
     const heroFadeObserver = new IntersectionObserver((entries) => {
@@ -647,6 +661,7 @@ body::before {
           window.location.hash = target;
           document.body.classList.remove('fade-out');
           document.documentElement.style.scrollBehavior = originalBehavior;
+          checkHeroVisibility();
         }, 500);
       });
     });
@@ -664,6 +679,8 @@ body::before {
           window.location.hash = targetId;
           hero.classList.remove('hero-transition');
           targetEl.classList.remove('section-reveal');
+          hero.style.display = 'none';
+          checkHeroVisibility();
         }, 500);
       });
     });
