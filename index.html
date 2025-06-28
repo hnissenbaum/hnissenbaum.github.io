@@ -422,10 +422,17 @@ body::before {
   animation: float 6s ease-in-out infinite;
 }
 /* Hero transition */
-.hero-transition{animation:heroCollapse 0.5s forwards;}
-.section-reveal{animation:sectionReveal 0.5s forwards;}
-@keyframes heroCollapse{from{transform:scale(1);opacity:1;}to{transform:scale(0.8);opacity:0;}}
-@keyframes sectionReveal{from{transform:scale(0.8);opacity:0;}to{transform:scale(1);opacity:1;}}
+.hero-transition { animation: heroSlide 0.5s forwards; }
+.section-reveal { animation: sectionSlide 0.5s forwards; }
+@keyframes heroSlide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+@keyframes sectionSlide {
+  from { transform: translateX(100%) translateY(0); }
+  to { transform: translateX(0) translateY(0); }
+}
+
 
 /* === Responsive === */
 @media (max-width: 768px) {
@@ -625,15 +632,11 @@ body::before {
         const targetId = anchor.getAttribute('href');
         const targetEl = document.querySelector(targetId);
         if (!targetEl) return;
-        const rect = hero.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        hero.style.transformOrigin = `${x}px ${y}px`;
-        targetEl.style.transformOrigin = `${x}px ${y}px`;
         hero.classList.add('hero-transition');
         targetEl.classList.add('section-reveal', 'visible');
         setTimeout(() => {
-          window.location.hash = targetId;
+          history.replaceState(null, '', targetId);
+
           hero.classList.remove('hero-transition');
           targetEl.classList.remove('section-reveal');
         }, 500);
