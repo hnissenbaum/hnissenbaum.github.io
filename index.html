@@ -370,10 +370,23 @@ body.dark-mode footer {
   align-items: center;
   text-align: center;
   background-color: var(--bg-card-light);
+  position: sticky;
+  top: 0;
+  background-attachment: fixed;
+  overflow: hidden;
 }
 
 .dark-mode .viewport-center {
   background-color: var(--bg-card-dark);
+}
+
+.hero-content {
+  transition: opacity 0.7s, transform 0.7s;
+}
+
+.fade-hero .hero-content {
+  opacity: 0;
+  transform: translateY(-30px);
 }
 
 .viewport-links {
@@ -478,7 +491,7 @@ body::before {
 </head>
 <body>
   <div class="viewport-center">
-    <div>
+    <div class="hero-content">
       <section class="hero">
         <div class="hero-text">
           <a href="#about">
@@ -609,6 +622,18 @@ body::before {
     });
 
     const hero = document.querySelector('.viewport-center');
+
+    const aboutSection = document.querySelector('#about').closest('section');
+    const heroFadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          hero.classList.add('fade-hero');
+        } else {
+          hero.classList.remove('fade-hero');
+        }
+      });
+    }, { threshold: 0.5 });
+    if (aboutSection) heroFadeObserver.observe(aboutSection);
 
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       if (anchor.closest('.viewport-center')) return;
