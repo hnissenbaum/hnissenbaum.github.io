@@ -1,353 +1,576 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <title>H Banan – Software & Systems Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <title>H Banan – Software &amp; Systems Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
   <style>
-    html {
-        scroll-behavior: smooth;
-    }
-    :root {
-      --bg-body-light: #eff1eb;
-      --text-body-light: #3c3f3a;
-      --bg-card-light: #d6dbd5;
-      --text-card-light: #424740;
-      --bg-header-light: #a5b2a2;
-      --text-header-light: #3f463c;
-      --accent: #737d71;
-      --accent-dark: #703c3c;
+/* === CSS Variables === */
+:root {
+  --bg-body-light: #eff1eb;
+  --text-body-light: #3c3f3a;
+  --bg-card-light: #d6dbd5;
+  --text-card-light: #424740;
+  --bg-header-light: #a5b2a2;
+  --text-header-light: #3f463c;
+  --accent: #737d71;
+  --accent-dark: #703c3c;
 
-      --bg-body-dark: #2a2a2e;
-      --text-body-dark: #e6dbce;
-      --bg-card-dark: #3b332c;
-      --text-card-dark: #d8c7b4;
-      --bg-header-dark: #44362f;
-      --text-header-dark: #e4d5c7;
+  --bg-body-dark: #2a2a2e;
+  --text-body-dark: #e6dbce;
+  --bg-card-dark: #3b332c;
+  --text-card-dark: #d8c7b4;
+  --bg-header-dark: #44362f;
+  --text-header-dark: #e4d5c7;
 
-      --text-main-dark: #e6dbce;
+  --header-font-weight: 500;
+  --body-font-weight: 400;
+  --nav-font-weight: 500;
+}
 
-      --header-font-weight: 500;
-      --body-font-weight: 400;
-      --nav-font-weight: 500;
-    }
+/* === Global Styles === */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg-body-light);
-      color: var(--text-body-light);
-      transition: background-color 0.3s, color 0.3s;
-      margin: 0;
-      padding-top: 60px; /* space for fixed nav */
-    }
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-body-light);
+  color: var(--text-body-light);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+  position: relative;
+}
 
-    body.dark-mode {
-      background-color: var(--bg-body-dark);
-      color: var(--text-body-dark);
-    }
+body.dark-mode {
+  background-color: var(--bg-body-dark);
+  color: var(--text-body-dark);
+}
 
-    /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 60px;
-      background-color: var(--bg-header-light);
-      color: var(--text-header-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      font-family: 'Cinzel', serif;
-      font-weight: var(--nav-font-weight);
-      z-index: 1001;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s, color 0.3s;
-    }
+/* === Header and Navigation === */
+header {
+  background-color: var(--bg-header-light);
+  color: var(--text-header-light);
+  padding: 0.5rem 2rem;
+  margin: 1rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 
-    nav a {
-      color: var(--text-header-light);
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
+body.dark-mode header {
+  background-color: var(--bg-header-dark);
+  color: var(--text-header-dark);
+  border-color: #555;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
 
-    nav a:hover {
-      color: var(--accent);
-      text-decoration: underline;
-    }
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
 
-    body.dark-mode nav {
-      background-color: var(--bg-header-dark);
-      color: var(--text-header-dark);
-    }
+nav a {
+  font-family: 'Cinzel', serif;
+  font-weight: var(--nav-font-weight);
+  font-size: 1rem;
+  color: var(--text-header-light);
+  text-decoration: none;
+  position: relative;
+  transition: font-size 0.3s, font-weight 0.3s;
+}
 
-    body.dark-mode nav a {
-      color: var(--text-header-dark);
-    }
+nav a:hover,
+.viewport-links a:hover {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 110%;
+}
 
-    body.dark-mode nav a:hover {
-      color: var(--accent);
-    }
+body.dark-mode nav a,
+body.dark-mode .logo {
+  color: var(--text-header-dark);
+}
 
-    h1, h2, nav a, .logo-text {
-      font-family: 'Cinzel', serif;
-      font-weight: var(--header-font-weight);
-    }
+.toggle-dark {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  color: var(--text-header-light);
+  transition: color 0.3s;
+}
 
- 
-    header {
-        background-color: var(--bg-header-light);
-        color: var(--text-header-light);
-        padding: 0.5rem 2rem;
-        margin: 1rem auto;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: background 0.3s ease, box-shadow 0.3s ease;
-        position: sticky;
-        top: 0;
-        z-index: 999;
-        }
+body.dark-mode .toggle-dark {
+  color: var(--text-header-dark);
+}
 
-    /* HERO */
-    header.hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: calc(100vh - 60px); /* full viewport minus nav */
-      padding: 2rem;
-      background-color: var(--bg-body-light);
-      text-align: center;
-      flex-direction: column;
-      transition: background-color 0.3s, color 0.3s;
-      z-index: 999;
-    }
+/* === Logo === */
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+}
 
-    header.hero h1 {
-      font-size: 3rem;
-      color: var(--accent);
-      margin: 0 0 1rem 0;
-      transition: color 0.3s;
-    }
+.logo-img {
+  height: 80px;
+  margin-right: 0.75rem;
+}
 
-    header.hero p {
-      max-width: 600px;
-      font-size: 1.25rem;
-      line-height: 1.6;
-      color: var(--text-body-light);
-      margin: 0;
-      transition: color 0.3s;
-    }
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: var(--header-font-weight);
+}
 
-    body.dark-mode header.hero {
-      background-color: var(--bg-body-dark);
-    }
+/* === Main and Sections === */
+main {
+  max-width: 95%;
+  margin: 2rem auto;
+  padding: 0 1rem 3rem;
+}
 
-    body.dark-mode header.hero h1 {
-      color: var(--accent);
-    }
+section {
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
-    body.dark-mode header.hero p {
-      color: var(--text-main-dark);
-    }
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    main {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem 1.5rem;
-    }
+section + section {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 3rem;
+}
 
-    section {
-      background-color: var(--bg-card-light);
-      color: var(--text-card-light);
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-      transition: background-color 0.3s, color 0.3s;
-    }
+/* === Typography === */
+h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: var(--header-font-weight);
+  letter-spacing: 0.03em;
+  scroll-margin-top: 100px;
+  color: var(--text-header-light);
+  padding-top: 50px;
+}
 
-    body.dark-mode section {
-      background-color: var(--bg-card-dark);
-      color: var(--text-card-dark);
-    }
+body.dark-mode h2 {
+  color: var(--text-header-dark);
+}
 
-    h2 {
-    color: var(--accent);
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    letter-spacing: 0.5px;
-    font-family: 'Cinzel', serif;
-    scroll-margin-top: 50px;
-    padding-top: 50px;
-    }
+/* === Cards === */
+.card {
+  background-color: var(--bg-card-light);
+  color: var(--text-card-light);
+  padding: 2rem;
+  border-radius: 1px;
+  border: 1px solid #d3c9b9;
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
 
-    p, li {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: inherit;
-      margin-bottom: 0.75rem;
-    }
+.card:hover {
+  transform: translateY(-4px);
+}
 
-    ul {
-      padding-left: 1.2rem;
-    }
+.card p {
+  color: var(--text-card-light);
+  opacity: 0.95;
+}
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+body.dark-mode .card {
+  background-color: var(--bg-card-dark);
+  color: var(--text-card-dark);
+  border-color: #6f5747;
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+body.dark-mode .card p {
+  color: var(--text-card-dark);
+  opacity: 0.95;
+}
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
+/* === Hero Section === */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 75%;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background-color: var(--bg-card-light);
+}
 
-    /* Dark mode toggle button */
-    .toggle-btn {
-      position: fixed;
-      top: 70px; /* below nav */
-      right: 1rem;
-      background-color: var(--accent);
-      color: white;
-      /* border: none; */
-      padding: 0.5rem 1rem;
-      font-family: 'Montserrat', sans-serif;
-      border-radius: 6px;
-      cursor: pointer;
-      z-index: 1002;
-      transition: background-color 0.3s;
-    }
-    .toggle-dark {
-        cursor: pointer;
-        background: none;
-        border: none;
-        font-size: 1.2rem;
-        margin-left: 1rem;
-        color: var(--text-header-light);
-        transition: color 0.3s;
-        }
-    body.dark-mode .toggle-dark {
-        color: var(--text-header-dark);
-        }
+.hero a {
+  text-decoration: none;
+}
 
-    .toggle-btn:hover {
-      background-color: var(--accent-dark);
-    }
+.hero-text {
+  flex: 1;
+  padding: 0 1.5rem 0 5rem;
+}
 
-    @media (max-width: 600px) {
-      header.hero h1 {
-        font-size: 2.2rem;
-      }
+.hero p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-card-light);
+  opacity: 0.85;
+}
 
-      header.hero p {
-        font-size: 1.1rem;
-      }
+.hero img {
+  width: 35%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
 
-      nav {
-        gap: 1rem;
-      }
-    }
+body.dark-mode .hero {
+  background-color: var(--bg-card-dark);
+  color: var(--text-card-dark);
+}
+
+body.dark-mode .hero-text h2,
+body.dark-mode .hero-text p,
+body.dark-mode .hero img {
+  color: var(--text-card-dark);
+  opacity: 0.9;
+}
+
+/* === Lists === */
+ul {
+  padding-left: 1.25rem;
+}
+
+.focus-list {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+}
+
+.focus-list li {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.focus-list li:hover i {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.focus-list li i {
+  color: var(--accent);
+  min-width: 22px;
+  text-align: center;
+}
+
+.dark-mode .focus-list i {
+  color: var(--accent-dark);
+}
+
+/* === Buttons === */
+.button {
+  background: var(--accent);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 1px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background 0.3s, transform 0.15s;
+}
+
+.button:hover {
+  background: #a87339;
+  transform: translateY(-2px);
+}
+
+.dark-mode .button {
+  background: var(--accent-dark);
+}
+
+/* === Scroll To Top === */
+#scrollToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-header-light);
+  border-top: 1px solid var(--text-header-light);
+  max-width: 900px;
+  margin: auto;
+}
+
+body.dark-mode footer {
+  color: var(--text-header-dark);
+  border-color: var(--text-header-dark);
+}
+
+/* === Viewport Center & Links === */
+.viewport-center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--bg-card-light);
+}
+
+.dark-mode .viewport-center {
+  background-color: var(--bg-card-dark);
+}
+
+.viewport-links {
+  display: flex;
+  gap: 1.5rem;
+  width: 70vw;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.viewport-links a {
+  font-family: 'Cinzel', serif;
+  font-weight: var(--nav-font-weight);
+  color: var(--text-header-light);
+  text-decoration: none;
+  position: relative;
+  transition: font-size 0.3s, font-weight 0.3s;
+}
+
+.dark-mode .viewport-links a {
+  color: var(--text-card-dark);
+}
+
+/* === Animations & Keyframes === */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 0.5rem;
+    text-align: right;
+    width: 100%;
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+
+  header {
+    flex-wrap: wrap;
+    padding: 1rem 1rem;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .hero-text {
+    padding: 1rem 0 0;
+  }
+
+  .hero img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .logo-img {
+    height: 60px;
+  }
+}
   </style>
 </head>
-
 <body>
-  <header class="hero">
-    <h1>H Banan</h1>
-    <p>
-      Software & Systems Engineer blending deep technical expertise with a collaborative, user-centered mindset.
-    </p>
-  </header>
-  <nav>
-    <a href="#about">About Me</a>
-    <a href="#skills">Technical Skills</a>
-    <a href="#approach">Approach</a>
-    <a href="#contact">Contact</a>
-    <button class="toggle-dark" aria-label="Toggle dark mode" onclick="toggleDarkMode()">
+  <div class="viewport-center">
+    <div>
+      <section class="hero">
+        <div class="hero-text">
+          <a href="#about">
+            <h2>H Banan</h2>
+          </a>
+          <p>Software &amp; Systems Engineer blending deep technical expertise with a collaborative, user-centered mindset.</p>
+        </div>
+      </section>
+      <div class="viewport-links">
+        <a href="#about">About Me</a>
+        <a href="#skills">Technical Skills</a>
+        <a href="#approach">Approach</a>
+        <a href="#contact">Contact</a>
+        <button class="toggle-dark" aria-label="Toggle dark mode" onclick="toggleDarkMode()">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <a href="#" class="logo">
+      <span class="logo-text">H Banan</span>
+    </a>
+    <nav>
+      <a href="#about">About Me</a>
+      <a href="#skills">Technical Skills</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+      <button class="toggle-dark" aria-label="Toggle dark mode" onclick="toggleDarkMode()">
         <i class="fas fa-moon"></i>
-    </button>
-  </nav>
+      </button>
+    </nav>
+  </header>
+
   <main>
-    <h2 id="about">About Me</h2>
     <section>
-      <p>
+      <h2 id="about">About Me</h2>
+      <div class="card">
+        <p>
         I am excited to express my interest in an engineering position at the Boiler Room. With a robust foundation in software development combined with proven adaptability in hardware systems, I offer a unique blend of technical expertise, problem-solving skills, and a collaborative mindset that drives impactful, user-centered solutions.
-      </p>
+        </p>
+      </div>
     </section>
 
-    
-    <h2 id="skills">Technical Skills</h2>
-    <section>  
+    <section>
+      <h2 id="skills">Technical Skills</h2>
+      <div class="card">
         <p>
         My core strength lies in software engineering, where I have developed proficiency in Python, SQL, Odoo, and front-end technologies such as HTML and XML. I am well-versed in automation frameworks including Selenium and Robot Framework, and I integrate test-driven development principles to ensure that code is not only efficient and effective but also robust, maintainable, and well-documented. This approach consistently leads to scalable solutions that align closely with both technical requirements and user needs.
-      </p>
-      <p>
+        </p>
+        <p>
         Beyond software, my versatility and eagerness to expand my technical repertoire have led me to quickly acquire hands-on experience with hardware systems, including server configurations and rebuilds. This breadth of knowledge enhances my ability to bridge software and hardware domains—enabling me to develop solutions that are both technically sound and operationally practical. My capacity to learn complex new systems rapidly reflects a growth-oriented mindset and a high level of technical agility.
-      </p>
-      <ul>
-        <li>Python, SQL, HTML, XML</li>
-        <li>Odoo ERP Development & Customization</li>
-        <li>Test-Driven Development (TDD)</li>
-        <li>Automation: Selenium, Robot Framework</li>
-        <li>Hardware: Server configuration, rebuilds, troubleshooting</li>
-      </ul>
+        </p>
+        <ul>
+          <li>Python, SQL, HTML, XML</li>
+          <li>Odoo ERP Development &amp; Customization</li>
+          <li>Test-Driven Development (TDD)</li>
+          <li>Automation: Selenium, Robot Framework</li>
+          <li>Hardware: Server configuration, rebuilds, troubleshooting</li>
+        </ul>
+      </div>
     </section>
-    <h2 id="approach">Approach</h2>
+
     <section>
-      <p>
+      <h2 id="approach">Approach</h2>
+      <div class="card">
+        <p>
         I bring more than technical skills; I am a proactive collaborator and mentor who values clear communication and knowledge sharing. I have supported colleagues and end users through coaching and direct assistance, fostering stronger team cohesion and accelerating adoption of technical tools. Additionally, my ability to synthesize user feedback and translate it into actionable insights ensures that development efforts remain closely aligned with real-world needs and business goals.
-      </p>
-      <p>
+        </p>
+        <p>
         My approach to engineering is holistic: I take a step back to understand problems fully, then design innovative, efficient, and elegant solutions that serve both immediate objectives and future scalability. I am committed to continuous learning and process improvement and am passionate about building the frameworks that empower both individuals and teams to succeed.
-      </p>
+        </p>
+      </div>
     </section>
-    <h2 id="contact">Contact</h2>
+
     <section>
-      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile">yourprofile</a></p>
-      <p>GitHub: <a href="https://github.com/yourusername">@yourusername</a></p>
+      <h2 id="contact">Contact</h2>
+      <div class="card">
+        <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile">yourprofile</a></p>
+        <p>GitHub: <a href="https://github.com/yourusername">@yourusername</a></p>
+      </div>
     </section>
   </main>
 
+  <button id="scrollToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+    ↑ Top
+  </button>
+
   <footer>
-    &copy; 2025 H Banan — Built with care and clean code.
+    <p>&copy; 2025 H Banan — Built with care and clean code.</p>
   </footer>
 
-</body>  
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            }
-        const toggleBtn = document.getElementById('darkModeToggle');
-        const icon = toggleBtn.querySelector('i');
-    
-        toggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-    
-        if (document.body.classList.contains('dark-mode')) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-            toggleBtn.setAttribute('aria-label', 'Toggle light mode');
-        } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-            toggleBtn.setAttribute('aria-label', 'Toggle dark mode');
+  <script>
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      document.body.classList.add('dark-mode');
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
-        });
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach((section) => {
+      observer.observe(section);
+    });
+
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', () => {
+      scrollToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+
+    window.history.scrollRestoration = 'manual';
+    window.addEventListener('load', () => {
+      setTimeout(() => window.scrollTo(0, 0), 10);
+    });
   </script>
+</body>
 </html>
