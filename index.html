@@ -13,6 +13,7 @@
   <style>
     html {
         scroll-behavior: smooth;
+        scroll-padding-top: 70px;
     }
     :root {
       --bg-body-light: #eff1eb;
@@ -70,6 +71,14 @@
       z-index: 1001;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       transition: background-color 0.3s, color 0.3s;
+    }
+
+    .logo-text {
+      position: absolute;
+      left: 1rem;
+      color: inherit;
+      text-decoration: none;
+      font-size: 1.2rem;
     }
 
     nav a {
@@ -187,7 +196,7 @@
     margin-bottom: 1rem;
     letter-spacing: 0.5px;
     font-family: 'Cinzel', serif;
-    scroll-margin-top: 50px;
+    scroll-margin-top: 70px;
     padding-top: 50px;
     }
 
@@ -246,6 +255,17 @@
         color: var(--text-header-dark);
         }
 
+    .fade-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .toggle-btn:hover {
       background-color: var(--accent-dark);
     }
@@ -267,18 +287,19 @@
 </head>
 
 <body>
-  <header class="hero">
+  <header id="hero" class="hero">
     <h1>H Banan</h1>
     <p>
       Software & Systems Engineer blending deep technical expertise with a collaborative, user-centered mindset.
     </p>
   </header>
   <nav>
+    <a href="#hero" class="logo-text">H Banan</a>
     <a href="#about">About Me</a>
     <a href="#skills">Technical Skills</a>
     <a href="#approach">Approach</a>
     <a href="#contact">Contact</a>
-    <button class="toggle-dark" aria-label="Toggle dark mode" onclick="toggleDarkMode()">
+    <button id="darkModeToggle" class="toggle-dark" aria-label="Toggle dark mode">
         <i class="fas fa-moon"></i>
     </button>
   </nav>
@@ -349,5 +370,21 @@
             toggleBtn.setAttribute('aria-label', 'Toggle dark mode');
         }
         });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('header.hero, main section');
+      sections.forEach(sec => sec.classList.add('fade-section'));
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      sections.forEach(section => observer.observe(section));
+    });
   </script>
 </html>
