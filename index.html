@@ -660,8 +660,8 @@ body::before {
         hero.classList.add('hero-transition');
         targetEl.classList.add('section-reveal', 'visible');
         setTimeout(() => {
-          history.replaceState(null, '', targetId);
-
+          targetEl.scrollIntoView({ behavior: 'auto' });
+          window.location.hash = targetId;
           hero.classList.remove('hero-transition');
           targetEl.classList.remove('section-reveal');
         }, 500);
