@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>H Banan – Software &amp; Systems Engineer</title>
+  <title>Hannah Nissenbaum – Software &amp; Systems Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
   <style>
 /* === CSS Variables === */
 :root {
@@ -35,6 +38,13 @@
   scroll-behavior: smooth;
 }
 
+.dm-sans-hnsite {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -42,7 +52,7 @@ body {
   background-color: var(--bg-body-light);
   color: var(--text-body-light);
   line-height: 1.6;
-  transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+  transition: background-color 0.5s, color 0.5s, opacity 0.5s;
   position: relative;
 }
 
@@ -169,8 +179,11 @@ section + section {
 
 /* === Typography === */
 h2 {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.8rem;
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
   margin-bottom: 1rem;
   font-weight: var(--header-font-weight);
   letter-spacing: 0.03em;
@@ -373,8 +386,12 @@ body.dark-mode footer {
 }
 
 .viewport-links a {
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: var(--nav-font-weight);
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: large;
+  /* font-weight: var(--nav-font-weight); */
   color: var(--text-header-light);
   text-decoration: none;
   position: relative;
@@ -590,7 +607,7 @@ body::before {
           window.location.hash = target;
           document.body.classList.remove('fade-out');
           document.documentElement.style.scrollBehavior = originalBehavior;
-        }, 300);
+        }, 500);
       });
     });
   </script>
